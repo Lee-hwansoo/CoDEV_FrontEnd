@@ -12,4 +12,112 @@
     <string name="menu_heart">찜</string>
     <string name="menu_mark">북마크</string>
     <string name="menu_option">옵션</string>
+
+    <string name="add_new_project">프로젝트 모집하기</string>
+    <string name="edit_new_project">프로젝트 수정하기</string>
+    <string name="add_new_study">스터디 모집하기</string>
+    <string name="edit_new_study">스터디 수정하기</string>
+    <string name="add_new_title">제목</string>
+    <string name="add_new_des">프로젝트에 대한 설명과 진행 기간 등을 자유롭게 작성해 주세요.</string>
+    <string name="add_image_text">사진 첨부</string>
+    <string name="add_part_text">모집 분야</string>
+    <string name="add_part_pm_text">기획</string>
+    <string name="add_part_design_text">디자인</string>
+    <string name="add_part_front_text">프론트엔드</string>
+    <string name="add_part_back_text">백엔드</string>
+    <string name="add_part_etc_text">기타</string>
+    <string name="add_page_stack_text">기술</string>
+    <string name="add_page_location_text">지역</string>
+    <string name="add_page_deadline_text">마감 일자</string>
+    <string name="add_page_submit_text">작성하기</string>
+    <string name="add_page_people_text">인원</string>
+
+    <string name="menu_setting">설정</string>
+
+    <string name="str_project">프로젝트</string>
+    <string name="str_study">스터디</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hint_email">abcde@email.com</string>
+    <string name="hint_password">영문, 숫자, 특수문자 포함 8자 이상</string>
+    <string name="hint_profile">닉네임 입력</string>
+    <string name="register_tos_title">서비스 이용 약관에\n동의해 주세요.</string>
+    <string name="register_type_title">회원 유형을 선택해 주세요.</string>
+    <string name="register_type_individual">개인 회원</string>
+    <string name="register_type_business">기업 회원</string>
+    <string name="register_email_title">이메일을 인증해 주세요.</string>
+    <string name="register_code_title">코드를 보내 드렸습니다.</string>
+    <string name="register_code_subtitle">이메일 인증을 위해 아래에 코드를 입력해주세요.</string>
+
+    <string name="add_pf_toolbar">포트폴리오 작성하기</string>
+    <string name="detail_pf_toolbar">포트폴리오 상세</string>
+    <string name="edit_pf_toolbar">포트폴리오 수정하기</string>
+    <string name="add_pf_title_text">포트폴리오 제목</string>
+    <string name="pf_name_text">이름</string>
+    <string name="pf_birthday_text">생년월일 / 성별</string>
+    <string name="pf_level_text">직무 능력</string>
+    <string name="pf_stack_text">시용 기술 및 스택</string>
+    <string name="pf_intro_text">나를 표현하는 한 마디</string>
+    <string name="pf_content_text">자기소개</string>
+    <string name="pf_link_text">포트폴리오 자료(외부 링크 추가)</string>
+    <string name="pf_add_link_text">+ 추가하기</string>
+    <string name="pf_submit_button_text">저장하기</string>
+    <string name="pf_content_hint">나에 대해 자유롭게 표현해 보세요.</string>
+    <string name="sex_girl">여</string>
+    <string name="sex_boy">남</string>
+
+
+    <string name="register_pwd_title">비밀번호를 설정해 주세요.</string>
+    <string name="register_profile_title">프로필을 설정해 주세요.</string>
+    <string name="register_done_title">가입이 완료되었습니다!</string>
+    <string name="register_birth_title">정보를 입력해 주세요.</string>
+
+    <string name="server_client_id">242179001869-snj41p9nfda06ves81efofk8b0g6q9t2.apps.googleusercontent.com</string>
+
+
+    <string name="filter_loc_1_text">서울</string>
+    <string name="filter_loc_2_text">세종</string>
+    <string name="filter_loc_3_text">울산</string>
+    <string name="filter_loc_4_text">경기</string>
+    <string name="filter_loc_5_text">대전</string>
+    <string name="filter_loc_6_text">전북</string>
+    <string name="filter_loc_7_text">강원</string>
+    <string name="filter_loc_8_text">경북</string>
+    <string name="filter_loc_9_text">전남</string>
+    <string name="filter_loc_10_text">인천</string>
+    <string name="filter_loc_11_text">경남</string>
+    <string name="filter_loc_12_text">광주</string>
+    <string name="filter_loc_13_text">충북</string>
+    <string name="filter_loc_14_text">대구</string>
+    <string name="filter_loc_15_text">제주</string>
+    <string name="filter_loc_16_text">충남</string>
+    <string name="filter_loc_17_text">부산</string>
+    <string name="filter_loc_18_text">온라인</string>
+
+    <string name="filter_part_1_text">프론트엔드</string>
+    <string name="filter_part_2_text">백엔드</string>
+    <string name="filter_part_3_text">디자인</string>
+    <string name="filter_part_4_text">기획</string>
+    <string name="filter_part_5_text">기타</string>
+    <string name="home_hot_project">인기 프로젝트</string>
+    <string name="hot_study_text">인기 스터디</string>
+    <string name="hot_post_text">실시간 인기 정보글</string>
+    <string name="hot_qna_text">HOT한 질문글</string>
+    <string name="hot_game_text">인기 공모전</string>
+
+    <string name="popup_txt">여기에 팝업 텍스트를 입력해주시면 됩니당아아아아아아아아아아아아아아아아아</string>
+
+    <string name="recruit_done1">모집 완료!</string>
+    <string name="recruit_done2">CODEV는 당신의 성장을 응원합니다.</string>
+    <string name="hint_chatroom">채팅방 이름 입력</string>
+    <string name="user_info_text">회원 정보</string>
+    <string name="login_noti_text">로 로그인하셨습니다.</string>
+    <string name="user_gender_text">성별</string>
+    <string name="user_birth_text">생년월일</string>
+    <string name="user_email_text">이메일</string>
+    <string name="user_password_text">비밀번호</string>
+
+
 </resources>

@@ -16,6 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         style="@style/Text.Heading4"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black_900"/>
 
 </androidx.appcompat.widget.Toolbar>
+
+
