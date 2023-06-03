@@ -66,10 +66,10 @@ interface RetrofitService {
         ,@Part files: List<MultipartBody.Part?>
     ): Call<ResCreateNewStudy>
 
-    @PUT("study/update/{id}")
+    @PUT("study/update/{coStudyId}")
     @Multipart
     fun updateStudy(
-        @Path("id") id: String
+        @Path("coStudyId") id: String
         ,@Header("CoDev_Authorization") authToken: String
         ,@Part("study") study: RequestBody
         ,@Part files: List<MultipartBody.Part?>
@@ -87,6 +87,73 @@ interface RetrofitService {
         ,@Header("CoDev_Authorization") authToken: String
         ,@Body params: ReqUpdatePF
     ): Call<ResCreateNewPF>
+
+    @POST("infoBoard")
+    @Multipart
+    fun createNewInfo(
+        @Header("CoDev_Authorization") authToken: String
+        ,@Part("InfoBoard") InfoBoard: RequestBody
+        ,@Part files: List<MultipartBody.Part?>
+    ): Call<ResCreateNewPost>
+
+    @POST("qnaBoard")
+    @Multipart
+    fun createNewQNA(
+        @Header("CoDev_Authorization") authToken: String
+        ,@Part("qnaBoard") InfoBoard: RequestBody
+        ,@Part files: List<MultipartBody.Part?>
+    ): Call<ResCreateNewPost>
+
+    @PUT("infoBoard/update/{coInfoId}")
+    @Multipart
+    fun updateInfo(
+        @Path("coInfoId") id: String,
+        @Header("CoDev_Authorization") authToken: String
+        ,@Part("infoBoard") infoBoard: RequestBody
+        ,@Part files: List<MultipartBody.Part?>
+    ): Call<ResUpdatePost>
+
+    @PUT("qnaBoard/update/{coqnaId}")
+    @Multipart
+    fun updateQNA(
+        @Path("coqnaId") id: String,
+        @Header("CoDev_Authorization") authToken: String
+        ,@Part("qnaBoard") qnaBoard: RequestBody
+        ,@Part files: List<MultipartBody.Part?>
+    ): Call<ResUpdatePost>
+    @GET("qnaBoard/qnaBoards/{page}")
+    fun requestQDataList( //커뮤니티 - 질문글 리스트 전체조회
+        @Header("CoDev_Authorization") header: String,
+        @Path("page") page: Int,
+        @Query("coMyBoard") coMyBoard: Boolean,
+        @Query("sortingTag") sortingTag: String
+    ): Call<ResGetCommunityList1>
+
+    @GET("infoBoard/infoBoards/{page}")
+    fun requestIDataList( //커뮤니티 - 정보글 리스트 전체조회
+        @Header("CoDev_Authorization") header: String,
+        @Path("page") page: Int,
+        @Query("coMyBoard") coMyBoard: Boolean,
+        @Query("sortingTag") sortingTag: String
+    ): Call<ResGetCommunityList1>
+
+    @GET("board/search/{page}")
+    fun searchCommunityDataList( //커뮤니티 - 정보글 리스트 검색
+        @Path("page") page: Int,
+        @Query("searchTag") searchTag: String,
+        @Query("sortingTag") sortingTag: String,
+        @Query("coMyBoard") coMyBoard: Boolean,
+        @Query("type") type: String
+    ): Call<ResGetSearchCommunity>
+
+
+    @GET("infoBoard/infoBoards/{page}")
+    fun requestCDataList( //커뮤니티 - 공모전글 리스트 전체조회
+        @Header("CoDev_Authorization") header: String,
+        @Path("page") page: Int,
+        @Query("coMyBoard") coMyBoard: Boolean,
+        @Query("sortingTag") sortingTag: String
+    ): Call<ResGetCommunityList2>
 
     @GET("project/projects/{page}")
     fun requestPDataList(
@@ -121,10 +188,26 @@ interface RetrofitService {
     @GET("my-page/portfolioList")
     fun getPortFolio(@Header("CoDev_Authorization") header: String) : Call<ResPortFolioList>
 
+    //내정보 > 북마크
     @GET("my-page/hearts/projects")
     fun getHeartedProject(@Header("CoDev_Authorization") header: String) : Call<ResBookMarkProjectList>
     @GET("my-page/hearts/studies")
     fun getHeartedStudy(@Header("CoDev_Authorization") header: String) : Call<ResBookMarkStudyList>
+    @GET("qnaBoard/mark/list")
+    fun getHeartedQustion(@Header("CoDev_Authorization") header: String) : Call<ResBookMarkQuestionAndInfoList>
+    @GET("infoBoard/mark/list")
+    fun getHeartedInfo(@Header("CoDev_Authorization") header: String) : Call<ResBookMarkQuestionAndInfoList>
+    @GET("my-page/mark/list")
+    fun getHeartedQustionAndInfo(@Header("CoDev_Authorization") header: String) : Call<ResBookMarkQuestionAndInfoList>
+    @GET("my-page/hearts/studies")
+    fun getHeartedContest(@Header("CoDev_Authorization") header: String) : Call<ResBookMarkContestList>
+
+    //내정보 > 내가 작성한 글 여기
+    @GET("my-page/myWrite")
+    fun getWrittenList(
+        @Header("CoDev_Authorization") header: String,
+        @Query("type") type: String
+    ) : Call<ResGetPSList>
 
     @GET("my-page/recruitment")
     fun getApplyList(
@@ -175,7 +258,7 @@ interface RetrofitService {
     @PATCH("study/recruitment/pick/{coStudyId}") //스터디 지원자 선택 & 선택취소 (임시저장)
     fun requestStudyApplicant(
         @Header("CoDev_Authorization") header: String,
-        @Path("coProjectId") coProjectId: Int,
+        @Path("coStudyId") coStudyId: Int,
         @Body params: ReqUpdateApplicant
     ): Call<JsonObject>
 
@@ -225,6 +308,15 @@ interface RetrofitService {
         @Body params: ReqRecruitedApplicantList
     ): Call<JsonObject>
 
+    @PATCH("project/recruitment/{coStudyId}")
+    fun doneRecruitStudy(
+        @Header("CoDev_Authorization") header: String,
+        @Path("coStudyId") coStudyId: Int,
+        @Body params: ReqRecruitedApplicantList
+    ): Call<JsonObject>
+
+
+
     @PUT("user/update/profile")
     @Multipart
     fun changeUserInfo(
@@ -237,7 +329,10 @@ interface RetrofitService {
     fun changePassword(@Header("CoDev_Authorization") authToken: String, @Body params: ReqChangeUserPassword): Call<ResChangeUserPassword>
 
     @GET("project/recruitment/portfolio/{coProjectId}/{coPortfolioId}")
-    fun getAppliedDetail(@Header("CoDev_Authorization") header: String, @Path("coProjectId") coProjectId: Int, @Path("coPortfolioId") coPortfolioId: Int) : Call<ResAppliedUserDetail>
+    fun getProjectAppliedDetail(@Header("CoDev_Authorization") header: String, @Path("coProjectId") coProjectId: Int, @Path("coPortfolioId") coPortfolioId: Int) : Call<ResAppliedUserDetail>
+
+    @GET("study/recruitment/portfolio/{coStudyId}/{coPortfolioId}")
+    fun getStudyAppliedDetail(@Header("CoDev_Authorization") header: String, @Path("coStudyId") coStudyId: Int, @Path("coPortfolioId") coPortfolioId: Int) : Call<ResAppliedUserDetail>
 
 
     @GET("chat/rooms")
@@ -252,4 +347,15 @@ interface RetrofitService {
     @POST("chat/invite")
     fun inviteChat(@Header("CoDev_Authorization") header: String, @Body params: ReqInviteChat) : Call<JsonObject>
 
+    @POST("chat/update/room_title")
+    fun renameChatRoom(@Header("CoDev_Authorization") header: String, @Body params: ReqRenameChatRoom) : Call<JsonObject>
+
+    @POST("chat/confirm/{roomId}")
+    fun confirmChatRoom(@Header("CoDev_Authorization") header: String, @Path("roomId") roomId: String) : Call<JsonObject>
+
+    @GET("chat/participants/{roomId}")
+    fun getChatRoomParticipants(@Header("CoDev_Authorization") header: String, @Path("roomId") roomId: String) : Call<ResGetChatRoomParticipants>
+
+    @GET("infoBoard/{coInfoId}")
+    fun getInfoDetail(@Header("CoDev_Authorization") header: String, @Path("coInfoId") coInfoId: Int) : Call<ResGetInfoDetail>
 }
